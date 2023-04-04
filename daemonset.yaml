@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      labels: project
+      app: project
   template:
     metadata:
       labels:
