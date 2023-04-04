@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ipapp
+  template:
+    metadata:
+      labels:
+        app: ipapp
+    spec:
+      containers:
+      - name: ipapp
+        image: gauthambappalige12/webpage:ipapp
+        ports:
+        - containerPort: 8080
