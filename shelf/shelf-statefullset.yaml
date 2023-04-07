@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-sfs
+  namespace: mypods
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shelf-sfs
+  template:
+    metadata:
+      labels:
+        app: shelf-sfs
+    spec:
+      containers:
+      - name: shelf-container01
+        image: gauthambappalige12/webpage:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shelfproject
+spec:
+  ports:
+  - port: 80
+    nodePort: 30001
+    targetPort: 80
+    protocol: TCP
+  selector:
+       app: shelf-sfs
+  type: NodePort
