@@ -31,7 +31,6 @@ spec:
   clusterIP: None
   ports:
   - port: 80
-    nodePort: 30006
     targetPort: 80
     protocol: TCP
   selector:
