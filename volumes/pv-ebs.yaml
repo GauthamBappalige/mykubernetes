@@ -4,7 +4,7 @@ metadata:
   name: aws-ebs-pv
 spec:
   awsElasticBlockStore:
-    volumeID: vol-0d151e59e77f4f031
+    volumeID: vol-0b26bb230fac0c4de
     fsType: xfs
   accessModes:
   - ReadWriteMany
