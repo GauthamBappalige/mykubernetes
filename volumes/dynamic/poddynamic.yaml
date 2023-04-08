@@ -1,0 +1,17 @@
+kind: Pod
+metadata:
+  name: my-ip-app-volume
+spec:
+  containers:
+  - name: ip-app
+    image: gauthambappalige12/webpage:ipapp
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: my-volume
+      mountPath: '/app/volume'
+
+  volumes:
+  - name: my-volume
+    persistentVolumeClaim:
+      claimName: my-pvc-ebs-dynamic
