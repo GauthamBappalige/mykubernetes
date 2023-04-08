@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-ip-app-volume
+  name: my-ip-app-volumed
 spec:
   containers:
   - name: ip-app
@@ -9,10 +9,10 @@ spec:
     ports:
     - containerPort: 80
     volumeMounts:
-    - name: my-volume
+    - name: my-volumed
       mountPath: '/app/volume'
 
   volumes:
-  - name: my-volume
+  - name: my-volumed
     persistentVolumeClaim:
       claimName: my-pvc-ebs-dynamic
