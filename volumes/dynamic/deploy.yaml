@@ -12,9 +12,16 @@ spec:
       labels:
         app: ip-app
     spec:
+      volumes:
+        - name: newvolume
+          persistentVolumeClaim:
+            claimName: deploy-dynamic-pvc
       containers:
         - name: ip-app
           image: gauthambappalige12/webpage:ipapp
           ports:
             - containerPort: 80
+          volumeMounts:
+            - mountPath: "/tmp/data/"
+              name: newvolume  
             
